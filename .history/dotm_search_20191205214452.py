@@ -13,8 +13,7 @@ import argparse
 
 def create_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dir', help='which directory to search in', 
-    default='.')
+    parser.add_argument('--dir', help='which directory to search in', default='.')
     parser.add_argument('text', help='text query')
     return parser
 
@@ -31,10 +30,10 @@ def main(directory, query):
         files_searched += 1
         full_path = os.path.join(directory, file)
         if not full_path.endswith(".dotm"):
-            print("                     This isn't a dotm file: {}".format(full_path))
+            print("this isn't a dotm {}".format(full_path))
             continue
         if not zipfile.is_zipfile(full_path):
-            print("                     This isn't a zip file: {}".format(full_path))
+            print("this isn't a zip file {}".format(full_path))
             continue
         with zipfile.ZipFile(full_path, "r") as zipped:
             stuff = zipped.namelist()
